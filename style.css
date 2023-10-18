@@ -1,35 +1,153 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitter:wght@100&family=Cairo&family=Dancing+Script&family=Exo+2&family=Fraunces:opsz,wght@9..144,700&family=Gemunu+Libre:wght@200&family=Glory:wght@200&family=Montserrat:ital,wght@0,200;0,400;0,700;1,100&family=PT+Serif:ital,wght@0,400;0,700;1,700&family=Poppins:wght@300;400&family=Roboto+Mono:wght@100;300&family=Rubik&family=Ruwudu&family=Victor+Mono:wght@100;500&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
-    font-family: 'Gemunu Libre', 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-family: 'Gemunu Libre', 'Cairo', sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    width: 100vw;
-    background: #0093E9 linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-    display: grid;
-    place-items: start center;
-    padding: 12px;
+  min-height: 100vh;
+  width: 100vw;
+  background: #0093E9 linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+}
+
+.container-area {
+  width: 100%;
+  max-width: 30%; /* Adjust as needed */
+  background-color: #FBFBFB;
+  padding: 12px;
+  box-shadow: 0px 0px 2px 2px #32323212;
 }
 
 .tasks-area {
-    display: flex;
-    flex-direction: row;
-    border: 2px solid #0093E9;
-    padding: 3px;
-    background-color: #FBFBFB;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #0093E9;
+  padding: 12px;
+  background-color: #FBFBFB;
 }
 
-/* Media query for screens with a maximum width of 320px */
-@media (max-width: 320px) {
-    .tasks-area {
-        flex-direction: column; /* Stack items vertically */
-        border: 0; /* Remove border */
-        padding: 10px; /* Add spacing between items */
-    }
+.tasks-area input {
+  flex: 1; /* Take up remaining space */
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  background-color: #FBFBFB;
+  letter-spacing: 2px;
 }
+
+.tasks-area button {
+  padding: 12px 24px;
+  background: #0093E9;
+  color: #FBFBFB;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.types-of-tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.indicator {
+  background-color: #0093E9;
+  width: calc(50% / 3);
+  height: 2px;
+}
+
+.check-completed {
+  width: 20px;
+  height: 20px;
+  border: 2px solid black;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.check-completed-active {
+  background-color: #0093E9;
+  border: none;
+  border-radius: 50%;
+}
+
+.types-of-tasks button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #323232;
+  letter-spacing: 1px;
+  border: none;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Media Queries */
+
+/* Adjust container width for smaller screens */
+@media screen and (max-width: 768px) {
+  .container-area {
+    max-width: 90%;
+  }
+}
+
+/* Responsive styles for tasks area */
+@media screen and (max-width: 480px) {
+  .tasks-area {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tasks-area input {
+    margin-bottom: 12px;
+  }
+  
+  .tasks-area button {
+    width: 80%;
+  }
+  
+}
+
+/* Responsive styles for task results */
+@media screen and (max-width: 480px) {
+  .task-result {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .task-result .info {
+    margin-bottom: 8px;
+  }
+  .tasks-area input::placeholder{
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1017px) {
+    .tasks-area {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    .tasks-area input {
+      margin-bottom: 12px;
+    }
+    
+    .tasks-area button {
+      width: 100%;
+    }
+    .tasks-area input::placeholder{
+        text-align: center;
+      }
+  }
